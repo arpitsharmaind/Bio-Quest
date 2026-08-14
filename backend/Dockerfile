@@ -1,15 +1,15 @@
-FROM php:8.3-fpm-alpine
+FROM composer:2 AS vendor
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
-RUN apk add --no-cache \
-    libpng-dev libzip-dev zip unzip git \
+FROM php:8.4-fpm-alpine
+RUN apk add --no-cache libpng-dev libzip-dev zip unzip \
     && docker-php-ext-install pdo_mysql zip gd
 
 WORKDIR /var/www/html
-
 COPY . .
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+COPY --from=vendor /app/vendor ./vendor
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 

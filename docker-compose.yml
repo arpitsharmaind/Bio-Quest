@@ -1,12 +1,23 @@
 services:
+  frontend-build:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: export
+    volumes:
+      - ./frontend/dist:/dist
+
   app:
     build:
       context: ./backend
       dockerfile: Dockerfile
     env_file:
       - ./backend/.env
+    volumes:
+      - ./backend/.env:/var/www/html/.env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: unless-stopped
 
   nginx:
@@ -16,7 +27,7 @@ services:
     volumes:
       - ./backend:/var/www/html:ro
       - ./nginx/laravel.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./financeai-frontend/dist:/usr/share/nginx/html:ro
+      - ./frontend/dist:/usr/share/nginx/html:ro
     depends_on:
       - app
     restart: unless-stopped
@@ -24,10 +35,15 @@ services:
   db:
     image: mariadb:10.11
     restart: unless-stopped
-    env_file: 
+    env_file:
       - ./.env.db
     volumes:
       - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   dbdata:
