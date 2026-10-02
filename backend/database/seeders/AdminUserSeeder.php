@@ -14,10 +14,10 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate(
-            ['email' => 'admin@bioquest.test'],
+            ['email' => 'info.delightindustry@gmail.com'],
             [
                 'name' => 'BioQuest Admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('Ashking@14'),
             ],
         );
     }
