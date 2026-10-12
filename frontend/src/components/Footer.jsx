@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import logoWhite from '../assets/logo-white.png'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -20,16 +21,12 @@ export default function Footer() {
             <div className="col-lg-4 col-md-6">
               <div className="footer-brand">
                 <a href="#top" className="footer-logo">
-                  <span className="logo-icon">
-                    <i className="fa-solid fa-leaf"></i>
-                  </span>
                   <span className="logo-text">
-                    Bio<span className="logo-highlight">Quest</span>
+                    <img src={logoWhite} alt="Logo" class="logo" />
                   </span>
                 </a>
                 <p className="footer-about">
-                  Leading manufacturer and exporter of high-quality biological
-                  products, serving the global scientific community since 1992.
+                  Delight Industries is a leading supplier and manufacturer of laboratory chemicals, glassware, equipment, and scientific essentials under the BioQuest brand. Serving educational institutions, research laboratories, industries, and testing facilities, we are committed to delivering quality, reliability, and value in every product.
                 </p>
                 <div className="footer-socials">
                   <a href="#" aria-label="Facebook">

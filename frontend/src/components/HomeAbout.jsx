@@ -9,25 +9,9 @@ export default function HomeAbout() {
             <img src={titanInfo} className="img-fluid" alt="Titan Biotech" />
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
-            <h2>Manufacturing Biological Products Since 1992</h2>
+            <h2>About Delight Industries & BioQuest</h2>
+            <p>Established in 2024, Delight Industries is an ISO 9001, CE, and GMP-certified manufacturer dedicated to delivering world-class industrial and scientific solutions. Under our premier brand, BioQuest, we specialize in high-purity Analytical Reagent (AR) and Laboratory Reagent (LR) grade chemicals, premium borosilicate glassware, and advanced laboratory equipment. From individual precision instruments to complete, turnkey laboratory setups, we provide comprehensive, reliable infrastructure tailored for research, quality control, and industrial testing. Backed by state-of-the-art manufacturing and strict quality compliance, we empower the scientific community to innovate and discover with total confidence.</p>
             <p>
-              &ldquo;With the remarkable market presence of 30+ years in 100+
-              countries worldwide, Titan Biotech aims to push boundaries of
-              research and development to deliver the best biological
-              products.&rdquo; All the biotechnology products are conducive to
-              clinical diagnosis, vaccine production, antibiotics,
-              agro-biotechnology, and animal feed.
-            </p>
-            <p>
-              Our products are certified by{' '}
-              <b>ISO 13485:2016 &amp; ISO 9001:2015</b>. Titan Biotech Limited is
-              GMP facilitated and established to serve the scientific community
-              and humanity by providing high-quality biological products.
-            </p>
-            <p>
-              <a href="#products" className="btn btn-outline-default">
-                Read More
-              </a>
             </p>
           </div>
         </div>

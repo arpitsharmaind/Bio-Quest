@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 const NAV_ITEMS = [
   { label: 'Home', href: '#top' },
@@ -30,11 +31,8 @@ export default function Navbar() {
       >
         <div className="container">
           <a className="navbar-brand logo" href="#top">
-            <span className="logo-icon">
-              <i className="fa-solid fa-leaf"></i>
-            </span>
             <span className="logo-text">
-              Bio<span className="logo-highlight">Quest</span>
+              <img src={logo} alt="Logo" class="logo" />
             </span>
           </a>
           <button
